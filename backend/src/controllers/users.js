@@ -12,12 +12,16 @@ exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.findAll();
 
-    if(!user) {
+   if(!users) {
       res.status(400).json( {success: false, message: 'User not found, please create an account '});
     } else {
-      res.status(200).json( {success: true, message: 'Welcome'} )
+     res.status(200).json( { users, success: true, message: 'Welcome'} )
     }
-  }
+ } catch (error) {
+  debug(error);
+  res.status(400).json( {success: false, message: `Error: ${error.message}`})
+ }
+
 }
 
 /**

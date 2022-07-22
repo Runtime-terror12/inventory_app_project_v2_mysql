@@ -24,7 +24,8 @@ router.post(
   [
     check("first_name").not().isEmpty().trim(),
     check("last_name").not().isEmpty().trim(),
-    check("email").not().normalizeEmail().isEmail().isEmpty().trim(),
+    check("email").not().isEmpty().trim(),
+    check("email").isEmail(),
     check("username").not().isEmpty().trim(),
     check("password").not().isEmpty().trim(),
     check("avatar").not().isEmpty().trim(),
@@ -37,7 +38,8 @@ router.put(
   [
     check("first_name").not().isEmpty().trim(),
     check("last_name").not().isEmpty().trim(),
-    check("email").not().normalizeEmail().isEmail().isEmpty().trim(),
+    check("email").not().isEmpty().trim(),
+    check("email").isEmail(),
     check("username").not().isEmpty().trim(),
     check("password").not().isEmpty().trim(),
     check("avatar").not().isEmpty().trim(),

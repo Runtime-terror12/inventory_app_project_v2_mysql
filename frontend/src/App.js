@@ -1,16 +1,22 @@
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CreateUserPage from './pages/CreateUserPage';
 //import './App.css';
 //import { Link } from 'react-router-dom'
-import AddUser from './components/AddUser';
-import LoginForm from './components/LoginForm';
+
+
 
  function App() {
+  
   return (
-    <div className='App'>
-      <h1>Inventory App</h1>
-      <AddUser />
-      
-    </div>
+<Router>
+  <main>
+      <Routes>
+          <Route path="/create-user" element={<CreateUserPage />} />
+          </Routes>
+       </main>
+</Router>
+    
+  
   );
 }
 

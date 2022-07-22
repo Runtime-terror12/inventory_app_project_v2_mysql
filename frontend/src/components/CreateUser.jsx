@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+//import { toast } from 'react-toastify';
+//import { useNavigate } from 'react-router-dom';
 
 
-function AddUser ({}) {
+function CreateUser () {
+
+    
 
 
 //registration states
@@ -10,83 +14,85 @@ function AddUser ({}) {
     const [ lastName, setLastName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
+    const [ profilePic, setProfilePic ] = useState('');
+    const [ avatar, setAvatar ] = useState('');
 
-//states for checking the errors
-    const [submitted, setSubmitted] = useState(false);
-    const [error, setError] = useState(false);
+    const createUser = async (newUser) => {
+        try {
+            const response = await fetch ('http://localhost:8000/api/users', {
+            method: 'POST',
+            headers:  {
+                'Content-Type' : 'application/json',
+            },
+            body: JSON.stringify(newUser)
+        });
 
+        const data = await response.json();
 
+        console.log(`Hooray! User ${data.username} has been created`)
+
+        }catch(error){
+            console.log('Whoops, something went wrong! User has not been created')
+        }
+
+    }
+    
     const handleUsername = (ev) => {
         setUsername(ev.target.value);
-        setSubmitted(false);
     }
 
     const handleFirstName = (ev) => {
         setFirstName(ev.target.value);
-        setSubmitted(false);
     }
     const handleLastName = (ev) => {
         setLastName(ev.target.value);
-        setSubmitted(false);
     }
     const handleEmail = (ev) => {
         setEmail(ev.target.value);
-        setSubmitted(false);
     }
     const handlePassword = (ev) => {
         setPassword(ev.target.value);
-        setSubmitted(false);
     }
-
-    
+    const handleProfilePic = (ev) => {
+        setProfilePic(ev.target.value);
+    }
+    const handleAvatar = (ev) => {
+        setAvatar(ev.target.value);
+    }
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
-        if(username === '' || firstName === '' || lastName === '' || email === '' || password === '' ) {
-            setError(true);
-        } else {
-            setSubmitted(true);
-            setError(false);
+
+        const newUser = {
+            username,
+            firstName,
+            lastName,
+            email,
+            password,
+            profilePic,
+            avatar,
         }
+        createUser(newUser);
 
         setUsername('');
         setFirstName('');
         setLastName('');
         setEmail('');
         setPassword('');
-    };
-//account successfully created
-    const userCreated = () => {
-        return(
-            <div className="success" style= { { display:submitted ? '' : 'none',
-        }}>
-        <h2>Hooray! Your account has been created!</h2>
-        </div>
-        );
+        setProfilePic('');
+        setAvatar('');
     };
 
-//creating account failed
+  
 
-const userNotCreated = () => {
-    return(
-        <div className="error" style= { {display:error ? '' : 'none',
-    } }>
-        <h2>Please enter all fields</h2>
-    </div>
-    );
-};
 
-      return (
+    return (
 
-        <div className="addCard">
+        <div className="addForm" >
             <div>
             <h1>Create an Account</h1>
             </div>
-            <div className="createdOrNot">
-                {userCreated()}
-                {userNotCreated()}
-
-            </div>
+           
             <form onSubmit = {handleSubmit} > 
             <div className="username-input">
                 <input type="text" placeholder="Enter Username" value={username} required
@@ -108,6 +114,15 @@ const userNotCreated = () => {
                 <input type="password" placeholder="Enter Password" value={password} required
                 onChange={ handlePassword} />
             </div>
+            <div className="avatar">
+                <input type="url" placeholder="Paste URL here" value={avatar} 
+                onChange= { handleAvatar} />
+            </div>
+            <div className="profile-pic">
+                <input type = "url" placeholder="Paste URL here" value={profilePic}
+                onChange={handleProfilePic} />
+
+            </div>
             <button type="submit">Create Account</button>
             
             </form>
@@ -115,4 +130,4 @@ const userNotCreated = () => {
     )
 }
 
-export default AddUser;
+export default CreateUser;
