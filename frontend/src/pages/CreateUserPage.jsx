@@ -3,7 +3,7 @@ import React from 'react'
 
 function CreateUserPage() {
   return (
-    <div className='container' style={{flexDirection:'column'}}>
+    <div className='user-page-header' style={{flexDirection:'column'}}>
         <h1>Create a New Account</h1>
         <CreateUser /> 
 

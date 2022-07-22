@@ -1,19 +1,20 @@
 import React from "react";
 
 
-function UserCard ({user}) {
+
+function UserCard ({users}) {
 
 
     return (
         <div className="infoCard">
             <div className="info-card-name">
-            <h1>Name: {user.first_name}{user.last_name} </h1>
+            <h1>Name: {users.first_name} </h1>
             </div>
             <div className="info-card-username">
-            <h3>Username: {user.username} </h3>
+            <h3>Username: {users.username} </h3>
             </div>
             <div className="info-card-profile-pic">
-            <img src = {user.profile_pic} alt={user.username}/>
+            <img src = {users.profile_pic} alt={users.username}/>
             </div>
         </div>
     )

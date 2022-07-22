@@ -2,8 +2,8 @@ import React from 'react'
 
 function Nav() {
   return (
-    <nav class="topnav">
-    <a class="active" href="#Inventory-App">Inventory App</a>
+    <nav className="topnav">
+    <a className="active" href="#Inventory-App">Inventory App</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
     <a href="#Users-Page">Users Page</a>

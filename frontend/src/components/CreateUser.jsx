@@ -88,45 +88,57 @@ function CreateUser () {
 
     return (
 
-        <div className="addForm" >
-            <div>
-            <h1>Create an Account</h1>
+
+    <form className="create-account-form" onSubmit = {handleSubmit} >
+
+       
+            <div className="form-header">
+            {/* <h1>Create an Account</h1> */}
             </div>
-           
-            <form onSubmit = {handleSubmit} > 
+
+         <div className="form-body" >   
+             
             <div className="username-input">
-                <input type="text" placeholder="Enter Username" value={username} required
+                <label className="lable-title">Username</label>
+                <input className="form-input" type="text" placeholder="Enter Username" value={username} required
                 onChange= {handleUsername}/>
             </div>
             <div className="firstName-input">
-                <input type="text" placeholder="Enter First Name" value={firstName} required
+            <label className="lable-title">First Name</label>
+                <input className="form-input" type="text" placeholder="Enter First Name" value={firstName} required
                 onChange= {handleFirstName} />
             </div>
             <div className="lastName-input">
-                <input type="text" placeholder="Enter Last Name" value={lastName} required
+            <label className="lable-title">Last Name</label>
+                <input className="form-input" type="text" placeholder="Enter Last Name" value={lastName} required
                 onChange={handleLastName} />
             </div >
             <div className="email-input">
-                <input type="email" placeholder="Enter Email Address" value={email} required
+            <label className="lable-title">Email Address</label>
+                <input className="form-input" type="email" placeholder="Enter Email Address" value={email} required
                 onChange={handleEmail} />
             </div>
             <div className="password">
-                <input type="password" placeholder="Enter Password" value={password} required
+            <label className="lable-title">Password</label>
+                <input className="form-input" type="password" placeholder="Enter Password" value={password} required
                 onChange={ handlePassword} />
             </div>
             <div className="avatar">
-                <input type="url" placeholder="Paste URL here" value={avatar} 
+            <label className="lable-title">Avatar</label>
+                <input className="form-input" type="url" placeholder="Paste URL here" value={avatar} 
                 onChange= { handleAvatar} />
             </div>
             <div className="profile-pic">
-                <input type = "url" placeholder="Paste URL here" value={profilePic}
+            <label className="lable-title">Profile Pic URL</label>
+                <input className="form-input" type = "url" placeholder="Paste URL here" value={profilePic}
                 onChange={handleProfilePic} />
 
             </div>
             <button type="submit">Create Account</button>
             
-            </form>
+            
         </div>
+     </form>   
     )
 }
 
