@@ -5,11 +5,13 @@ import "./index.css";
 import ProductPage from "./pages/productPage";
 import User from "./pages/User/User";
 import UpdateUser from "./pages/UpdateUser/UpdateUser";
+import Nav from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <Router>
+      <Nav />
       <main>
         <Routes>
           <Route path="/product/:id" element={<ProductPage />} />

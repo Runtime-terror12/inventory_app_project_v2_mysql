@@ -36,7 +36,9 @@ function UserInfo({ user }) {
   return (
     <Card
       style={{
-        width: "42vh",
+        justifyContent: "center",
+        width: "400px",
+        height: "10%",
       }}
     >
       <CardBody>
