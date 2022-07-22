@@ -1,3 +1,4 @@
+
 const express = require("express");
 const debug = require("debug")("app:server");
 const colors = require("colors");
@@ -21,6 +22,7 @@ sequelize
     process.exit(1); //NODE TERMINATE SERVER
   });
 
+
 const app = express();
 app.use(cors());
 
@@ -37,6 +39,7 @@ app.use("/api", routes);
 app.use("/api", userRoutes);
 
 const PORT = process.env.PORT || 8000;
+
 
 const server = app.listen(PORT, () => {
   debug(colors.rainbow(`Server is up and running on PORT: ${PORT}`));
