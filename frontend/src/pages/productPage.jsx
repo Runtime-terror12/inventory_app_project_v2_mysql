@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+
 //import Product from '../../../backend/src/models/Products';
 import ProductCard from '../components/productPage/ProductCard'
 import ProductNotFound from '../components/productPage/ProductNotFound';

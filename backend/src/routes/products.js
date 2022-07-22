@@ -6,13 +6,17 @@ const { validationResult } = require("express-validator");
 const { check } = require("express-validator");
 
 const router = express.Router();
-const
+
+const { 
     getProductByID,
      updateProduct,
     deleteProductById,
+    getProducts,
     createProduct
-} = require("../controllers/products");
 
+
+} = require("../controllers/products");
+router.get("/products", getProducts)
 router.get("/product/:id", getProductByID);
 router.put("/product/:id", [
     check("title").not().isEmpty().trim(),

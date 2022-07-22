@@ -34,19 +34,8 @@ function ProductInfo ({item}) {
   };
 
 
+function ProductCard({ item }) {
     return (
-        <div>
-      <div>
-        <h3>{item.title}</h3>
-      </div>
-      <div>
-        {`$ ${item.price}`}</div>
-      <div>
-        <img src={item.image} alt={item.title}/>
-      </div>
-      <div>
-        {item.description}
-      </div>
       <div className="description-card-actions">
         <LinkButton to={`/`} text={'Back'}/>
         <LinkButton className='link-btn-edit' to={`/edit-product/${item.id}`} text={'Update'} textColor={'#fff'} bgColor={'#00d912'}/>
