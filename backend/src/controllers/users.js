@@ -8,6 +8,7 @@ const { validationResult } = require("express-validator");
  * @route GET /api/users
  * @access Private
  */
+
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.findAll();
@@ -87,6 +88,7 @@ exports.deleteUsertById = async (req, res) => {
  * @route POST api/user/create
  * @access Public
  */
+
 exports.createUser = async (req, res) => {
   const errors = validationResult(req);
 
@@ -117,7 +119,7 @@ exports.updateUser = async (req, res) => {
     const updates = req.body;
 
     try {
-      const userToUpdate = await User.findByPk(userId); 
+      const userToUpdate = await User.findByPk(userId);
 
       const updatedUser = await userToUpdate.update(updates);
 
