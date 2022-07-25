@@ -1,11 +1,14 @@
 import React from 'react'
 
+
 function Nav() {
+
+  
   return (
     <nav className="topnav">
     <a className="active" href="#Inventory-App">Inventory App</a>
     <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    {/* <a href="#contact">Contact</a> */}
     <a href="#Users-Page">Users Page</a>
     <a href="#User-Page">User Page</a>
     <a href="#Products-Page">Products Page</a>
