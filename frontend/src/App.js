@@ -39,18 +39,10 @@ function App() {
           <Route path="/users" element={<UserPage />} />
           <Route path="/user/:id" element={<User />} />
           <Route path="/update-user/:id" element={<UpdateUser />} />
-<<<<<<< HEAD
-          <Route path='/' element={<HomePage />} />
-          <Route path='/create-product' element={<CreateProduct />} />
-          <Route path='/edit-product/:id' element={<EditProduct />} />
-          <Route path='/*' element={<NotFound />} />
-
-=======
           <Route path="/" element={<HomePage />} />
           <Route path="/create-product" element={<CreateProduct />} />
           <Route path="/edit-product/:id" element={<EditProduct />} />
           <Route path="/*" element={<NotFound />} />
->>>>>>> 32acdda1f39c9b7358d327f6cbf87f5447aad3b6
         </Routes>
       </main>
       <Footer />
