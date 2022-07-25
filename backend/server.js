@@ -1,46 +1,45 @@
-const express = require('express');
-const path = require('path');
-const cors = require('cors');
-const debug = require('debug')('app:server');
-const morgan = require('morgan');
-const dotenv = require('dotenv');
-const colors = require('colors');
+
+const express = require("express");
+const debug = require("debug")("app:server");
+const colors = require("colors");
+const morgan = require("morgan");
+const dotenv = require("dotenv");
+const path = require("path");
+const cors = require("cors");
 const sequelize = require("./src/db");
 
-
-
-const routes = require('./src/routes/users.js');
-
+const routes = require("./src/routes/products");
+const userRoutes = require("./src/routes/users");
 
 sequelize
   .authenticate()
-  .then((res) => debug(colors.blue.inverse('Database is connected')))
+  .then((res) => debug(colors.blue.inverse("Database is connected")))
   .catch((err) => {
     debug(
-      colors.red.inverse('There was an error connecting to the database'),
+      colors.red.inverse("There was an error connecting to the database"),
       err
     );
-    process.exit(1);
+    process.exit(1); //NODE TERMINATE SERVER
   });
 
 
 const app = express();
-app.use(cors()); //allows for cross-origin resource sharing
+app.use(cors());
 
-app.get('/', (req, res) => res.send('INDEX'));
-
-
-if((process.env.MODE = 'development')) {
-  app.use(morgan('dev'));
+if ((process.env.MODE = "development")) {
+  app.use(morgan("dev"));
 }
 
-dotenv.config({ path: path.join(__dirname, '..', '.env') }); 
-app.use(express.static(path.join(__dirname, 'src', 'public'))); 
-app.use(express.json()); 
+dotenv.config({ path: path.join(__dirname, "..", ".env") }); //find environment variables .env
+app.use(express.static(path.join(__dirname, "src", "public"))); //public
+app.use(express.json()); //server can speak in .json
 
+//ROUTES
+app.use("/api", routes);
+app.use("/api", userRoutes);
 
-app.use('/api', routes);
 const PORT = process.env.PORT || 8000;
+
 
 const server = app.listen(PORT, () => {
   debug(colors.rainbow(`Server is up and running on PORT: ${PORT}`));

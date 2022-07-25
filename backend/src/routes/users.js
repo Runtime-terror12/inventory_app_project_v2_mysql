@@ -2,9 +2,10 @@ const express = require("express");
 const debug = require("debug")("app:routes");
 
 const sequelize = require("../db");
-const User = require("../models/User");
+const { User } = require("../models/User");
 
 const { check } = require("express-validator");
+const { validationResult } = require("express-validator");
 
 const router = express.Router();
 
