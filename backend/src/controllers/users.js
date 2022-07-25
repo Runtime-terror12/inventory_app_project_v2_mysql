@@ -13,17 +13,23 @@ exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.findAll();
 
-   if(!users) {
-      res.status(400).json( {success: false, message: 'User not found, please create an account '});
+    if (!users) {
+      res
+        .status(400)
+        .json({
+          success: false,
+          message: "User not found, please create an account ",
+        });
     } else {
-     res.status(200).json( { users, success: true, message: 'Welcome'} )
+      res.status(200).json({ users, success: true, message: "Welcome" });
     }
- } catch (error) {
-  debug(error);
-  res.status(400).json( {success: false, message: `Error: ${error.message}`})
- }
-
-}
+  } catch (error) {
+    debug(error);
+    res
+      .status(400)
+      .json({ success: false, message: `Error: ${error.message}` });
+  }
+};
 
 /**
  * @desc Get single user by id
@@ -62,7 +68,7 @@ exports.getUserById = async (req, res) => {
  * @route DELETE api/users/delete/:id
  * @access Private
  */
-exports.deleteUsertById = async (req, res) => {
+exports.deleteUserById = async (req, res) => {
   const userId = req.params.id;
 
   try {
@@ -92,19 +98,30 @@ exports.deleteUsertById = async (req, res) => {
 exports.createUser = async (req, res) => {
   const errors = validationResult(req);
 
-  if(!errors.isEmpty()) {
-    res.status(400).json( {success: false, error: errors.array() });
+  if (!errors.isEmpty()) {
+    res.status(400).json({ success: false, error: errors.array() });
   } else {
-    try{
+    try {
       const newUser = req.body;
       const createdUser = await User.create(newUser);
-      res.status(200).json( {createdUser, success: true, message: 'User successfully created'});
-    } catch(error) {
+      res
+        .status(200)
+        .json({
+          createdUser,
+          success: true,
+          message: "User successfully created",
+        });
+    } catch (error) {
       debug(error);
-      res.status(400).json({ success: false, message: `User was not created - Error: ${error.message}`})
+      res
+        .status(400)
+        .json({
+          success: false,
+          message: `User was not created - Error: ${error.message}`,
+        });
     }
   }
-}
+};
 /**
  * @desc Update single user by ID
  * @route PUT api/users/update/:id

@@ -188,6 +188,9 @@ function UserForm({ userId }) {
       </FormGroup>
       <Button color="primary" type="submit">
         Submit
+      </Button>{" "}
+      <Button color="secondary" href={`/user/${userId}`}>
+        Cancel
       </Button>
     </Form>
   );

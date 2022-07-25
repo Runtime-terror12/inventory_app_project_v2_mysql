@@ -1,12 +1,8 @@
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
+.update-user-container {
+  width: 500px;
+  height: 100vh;
 }
 
-.container > * {
-  margin: 10px;
+.update-user-container > * {
+  margin: 50px;
 }

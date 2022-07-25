@@ -7,9 +7,11 @@ function UpdateUser() {
   const { id } = useParams();
 
   return (
-    <div className="container" style={{ backgroundColor: "#84A98C" }}>
-      <h2>Update User: </h2>
-      <UserForm userId={id} />
+    <div className="container">
+      <div className="update-user-container">
+        <h2>Update User: </h2>
+        <UserForm userId={id} />
+      </div>
     </div>
   );
 }

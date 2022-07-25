@@ -26,7 +26,7 @@ function UserInfo({ user }) {
         const data = await response.json();
 
         console.log("User deleted!", data);
-        navigate("/api/users");
+        navigate("/users");
       } catch (error) {
         console.log(error.message);
       }
@@ -60,14 +60,14 @@ function UserInfo({ user }) {
         <CardText>Username: {user.username}</CardText>
         <CardText>Password: {user.password}</CardText>
         <CardText>This user has purchased: </CardText>
-        <Button
-          href={`/update-user/${user.id}`}
-          style={{ backgroundColor: "#52796F" }}
-        >
+        <Button href={`/update-user/${user.id}`} color="primary">
           Update Info
         </Button>{" "}
         <Button color="danger" onClick={() => deleteUser(user.id)}>
           Delete
+        </Button>{" "}
+        <Button color="secondary" href="/users">
+          Back
         </Button>
       </CardBody>
     </Card>
