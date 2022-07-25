@@ -1,7 +1,6 @@
 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
 import "./index.css";
 
 import Nav from './components/NavBar/NavBar';
@@ -9,7 +8,7 @@ import ProductPage from "./pages/productPage";
 import EditProduct from './pages/UpdateProduct';
 import User from "./pages/User/User";
 import UpdateUser from "./pages/UpdateUser/UpdateUser";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer";
 import CreateProduct from './pages/CreateProduct';
 import NotFound from './pages/404';
 import HomePage from './pages/HomePage';
@@ -41,7 +40,7 @@ import CreateUserPage from './pages/CreateUserPage';
           <Route path='/' element={<HomePage />} />
           <Route path='/create-product' element={<CreateProduct />} />
           <Route path='/edit-product/:id' element={<EditProduct />} />
-          <Route path='/*' element={<NotFound />} /
+          <Route path='/*' element={<NotFound />} />
 
         </Routes>
       </main>

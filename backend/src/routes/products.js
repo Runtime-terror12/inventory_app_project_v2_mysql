@@ -6,7 +6,7 @@ const { validationResult } = require("express-validator");
 const { check } = require("express-validator");
 
 const router = express.Router();
-const
+const {
     getProductByID,
      updateProduct,
     deleteProductById,
