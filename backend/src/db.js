@@ -7,4 +7,8 @@ const sequelize = new Sequelize('inventory_app_project', 'root', '', {
   dialect: 'mysql',
 });
 
+//
+
+
+
 module.exports = sequelize;

@@ -1,4 +1,4 @@
-const squelize = require("../db");
+const sequelize = require("../db");
 const User = require("../models/User");
 const debug = require("debug")("app:controllers");
 const { validationResult } = require("express-validator");
@@ -8,7 +8,22 @@ const { validationResult } = require("express-validator");
  * @route GET /api/users
  * @access Private
  */
-exports.getAllUsers = async (req, res) => {};
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.findAll();
+
+   if(!users) {
+      res.status(400).json( {success: false, message: 'User not found, please create an account '});
+    } else {
+     res.status(200).json( { users, success: true, message: 'Welcome'} )
+    }
+ } catch (error) {
+  debug(error);
+  res.status(400).json( {success: false, message: `Error: ${error.message}`})
+ }
+
+}
 
 /**
  * @desc Get single user by id
@@ -73,8 +88,23 @@ exports.deleteUsertById = async (req, res) => {
  * @route POST api/user/create
  * @access Public
  */
-exports.createUser = async (req, res) => {};
 
+exports.createUser = async (req, res) => {
+  const errors = validationResult(req);
+
+  if(!errors.isEmpty()) {
+    res.status(400).json( {success: false, error: errors.array() });
+  } else {
+    try{
+      const newUser = req.body;
+      const createdUser = await User.create(newUser);
+      res.status(200).json( {createdUser, success: true, message: 'User successfully created'});
+    } catch(error) {
+      debug(error);
+      res.status(400).json({ success: false, message: `User was not created - Error: ${error.message}`})
+    }
+  }
+}
 /**
  * @desc Update single user by ID
  * @route PUT api/users/update/:id

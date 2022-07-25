@@ -12,9 +12,11 @@ const fs = require("fs").promises; //helps us get access to promises when dealin
 
 //import our database [x]
 //import the model that we are trying to import our data into [x]
+
 const db = require("./src/db"); //Check the file path
 const Product = require("./src/models/Products");
 const User = require("./src/models/User"); //Check the file path of this model
+
 
 //write our seed function -> take our json file, create rows with our data into it
 const seed = async () => {
@@ -38,6 +40,7 @@ const seed = async () => {
 
   const itemSeedPath = path.join(__dirname, "src", "data", "itemData.json"); //gets the path to itemData.json
 
+
   //asynchronously reads the content in this file
   const itemBuffer = await fs.readFile(itemSeedPath);
 
@@ -51,6 +54,7 @@ const seed = async () => {
   await Promise.all(ItemPromises);
 
   console.log("Product database info populated!");
+
 };
 
 seed();
