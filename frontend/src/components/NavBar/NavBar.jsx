@@ -1,21 +1,22 @@
 import React from "react";
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 
-function Nav() {
+function NavBar() {
   return (
-    <nav className="topnav">
-      <a className="active" href="#Inventory-App">
-        Inventory App
-      </a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#Users-Page">Users Page</a>
-      <a href="#User-Page">User Page</a>
-      <a href="#Products-Page">Products Page</a>
-      <a href="#Product-Page">Product Page</a>
-      <a href="#User-Form">User Form</a>
-      <a href="#Product-Form">Product Form</a>
-    </nav>
+    <Navbar color="light">
+      <NavbarBrand href="/">Store App</NavbarBrand>
+      <Nav tabs>
+        <NavItem>
+          <NavLink href="/users">View Users</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink disabled href="/product/:id">
+            View Product
+          </NavLink>
+        </NavItem>
+      </Nav>
+    </Navbar>
   );
 }
 
-export default Nav;
+export default NavBar;
