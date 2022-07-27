@@ -4,9 +4,11 @@ function Footer() {
 
     const year = new Date().getFullYear();
   return (
-    <footer>
+    <div className='footer'>
+    <footer >
       Copyright &copy; {year} | Runtime Terror. LLC.
     </footer>
+    </div>
   )
 }
 

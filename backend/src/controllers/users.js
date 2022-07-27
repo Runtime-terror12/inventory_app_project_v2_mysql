@@ -62,7 +62,7 @@ exports.getUserById = async (req, res) => {
  * @route DELETE api/users/delete/:id
  * @access Private
  */
-exports.deleteUsertById = async (req, res) => {
+exports.deleteUserById = async (req, res) => {
   const userId = req.params.id;
 
   try {
@@ -85,7 +85,7 @@ exports.deleteUsertById = async (req, res) => {
 
 /**
  * @desc Create single user
- * @route POST api/user/create
+ * @route POST api/user/create-user
  * @access Public
  */
 

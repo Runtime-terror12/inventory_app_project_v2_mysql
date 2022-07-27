@@ -10,11 +10,11 @@ function CreateUser () {
 
 //registration states
     const [ username, setUsername] = useState ('');
-    const [ firstName, setFirstName ] = useState('');
-    const [ lastName, setLastName ] = useState('');
+    const [ first_name, setFirstName ] = useState('');
+    const [ last_name, setLastName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
-    const [ profilePic, setProfilePic ] = useState('');
+    const [ profile_pic, setProfilePic ] = useState('');
     const [ avatar, setAvatar ] = useState('');
 
     const createUser = async (newUser) => {
@@ -23,13 +23,14 @@ function CreateUser () {
             method: 'POST',
             headers:  {
                 'Content-Type' : 'application/json',
+                'SameSite':'None'
             },
             body: JSON.stringify(newUser)
         });
 
         const data = await response.json();
 
-        console.log(`Hooray! User ${data.username} has been created`)
+        console.log(`Hooray! User has been created: `, data)
 
         }catch(error){
             console.log('Whoops, something went wrong! User has not been created')
@@ -65,11 +66,11 @@ function CreateUser () {
 
         const newUser = {
             username,
-            firstName,
-            lastName,
+            first_name,
+            last_name,
             email,
             password,
-            profilePic,
+            profile_pic,
             avatar,
         }
         createUser(newUser);
@@ -89,7 +90,7 @@ function CreateUser () {
     return (
 
 
-    <form className="create-account-form" onSubmit = {handleSubmit} >
+    <form className="create-account-form" action="http://localhost:8000/api/users" method="post" onSubmit = {handleSubmit} >
 
        
             <div className="form-header">
@@ -105,12 +106,12 @@ function CreateUser () {
             </div>
             <div className="firstName-input">
             <label className="lable-title">First Name</label>
-                <input className="form-input" type="text" placeholder="Enter First Name" value={firstName} required
+                <input className="form-input" type="text" placeholder="Enter First Name" value={first_name} required
                 onChange= {handleFirstName} />
             </div>
             <div className="lastName-input">
             <label className="lable-title">Last Name</label>
-                <input className="form-input" type="text" placeholder="Enter Last Name" value={lastName} required
+                <input className="form-input" type="text" placeholder="Enter Last Name" value={last_name} required
                 onChange={handleLastName} />
             </div >
             <div className="email-input">
@@ -130,12 +131,13 @@ function CreateUser () {
             </div>
             <div className="profile-pic">
             <label className="lable-title">Profile Pic URL</label>
-                <input className="form-input" type = "url" placeholder="Paste URL here" value={profilePic}
+                <input className="form-input" type = "url" placeholder="Paste URL here" value={profile_pic}
                 onChange={handleProfilePic} />
 
             </div>
+            <div className="submit-button">
             <button type="submit">Create Account</button>
-            
+            </div>
             
         </div>
      </form>   

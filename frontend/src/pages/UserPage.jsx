@@ -1,9 +1,10 @@
 //import { response } from 'express';
 import React, { useState, useEffect } from 'react'
 import Loader from '../components/Loader';
-// import User from '../../../backend/src/models/User'
-// import { get } from '../../../backend/src/routes/users';
+// import LinkButton from '../components/productPage/LinkButton';
 import UserCard from '../components/UserCard'
+
+
 
 
 function UserPage() {
@@ -32,11 +33,12 @@ function UserPage() {
 
   return (
     <div className='users'>
-        <h1>Users: </h1>
+        <h1 className='users'>Users </h1>
         <div className='container'>
              {allUsers.length > 0 ? allUsers.map((users) => <UserCard key={ users.id } users={ users } />) 
-        : <Loader />}  
-            
+        : <Loader />}
+        
+           {/* <LinkButton to={`/users/${id}`} text={'More Info'}/> */}
         
         </div>
         

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap');
 
 :root {
   --bg: #cad2c5;
@@ -46,4 +47,139 @@ code {
 .description-card-actions {
   background-color: #84A98C;
   width: 20%;
+}
+
+.new-account {
+  color: #2A2B2A ;
+  display: flex;
+  margin: auto;
+  font-size: 3.5rem;
+}
+
+.create-account-form { 
+  background-color: white;
+  display: flex;
+  width: 650px;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10px;
+  outline: solid 1px #2A2B2A;
+  
+
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  justify-content: center;
+  align-items: center;
+  /* outline: groove #2A2B2A 1px; */
+}
+
+.lable-title {
+  color: #3F7A51;
+  padding: 5px;
+  background-color: #DFDFDF;
+  font-weight: 600;
+  font-size: 26;
+  width: 100px;
+ 
+
+}
+
+
+.submit-button {
+  background-color: #DFDFDF;
+  padding: 20px;
+  display: flex;
+    
+  
+}
+
+* {
+  background-color: #DFDFDF;
+  font-family: 'Inconsolata', monospace;
+  font-family: 'Kanit', sans-serif;
+
+}
+
+.form-input {
+  background-color: white;
+  padding-right: 20px;
+  margin: 20px;
+  
+}
+
+.user-page-header {
+  display: flex;
+  background-color: #DFDFDF;
+  height: 87vh;
+}
+
+.footer {
+  margin:auto;
+  padding: 18px;
+  color: #2A2B2A;
+  text-align: center;
+  justify-content: center;
+
+}
+
+.users {
+  text-align: center;
+  justify-content: center;
+  font-size: 3rem;
+  padding: 30px;
+  background-color: #DFDFDF;
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: column ;
+  width: 400px;
+  height: 450px;
+  outline: solid 1px black;
+  background-color: #c2c1a5;
+  
+}
+.user-card-h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  background-color: #c2c1a5;
+  padding-top: 30px;
+}
+
+.info-card-profile-pic {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width:200px;
+  background-color: white;
+
+}
+.info-card-username {
+  background-color: #c2c1a5;
+}
+
+.info-card-name {
+  background-color: #c2c1a5;
+}
+.info-card-username-div {
+  background-color: #c2c1a5;
+}
+
+.more-info-button {
+  background-color: #c2c1a5;
+  font-size: 20px;
+  margin: auto;
+  
+  
+  
+}
+
+.users-card-image {
+  outline: 2px black solid;
 }

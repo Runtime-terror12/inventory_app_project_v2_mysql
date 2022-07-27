@@ -14,6 +14,9 @@ function NavBar() {
             View Product
           </NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink href="/create-user">Sign Up</NavLink>
+        </NavItem>
       </Nav>
     </Navbar>
   );
